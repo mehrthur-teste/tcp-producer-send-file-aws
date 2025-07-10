@@ -15,7 +15,7 @@ int main() {
     producer.sendMessage("Mensagem UDP 3");
 
     // Opcional: enviar arquivo em chunks
-    producer.sendFile("arquivo.dat");
+    //producer.sendFile("arquivo.dat");
 
     // Aguarda uns segundos para garantir envio antes de desconectar
     std::this_thread::sleep_for(std::chrono::seconds(1));

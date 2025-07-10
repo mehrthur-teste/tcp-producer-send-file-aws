@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libstreamProducer.a CMakeFiles/streamProducer.dir/src/stream/ProducerStream.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libstreamProducer.a
