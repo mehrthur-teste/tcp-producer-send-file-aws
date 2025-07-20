@@ -30,9 +30,7 @@ bool ProducerStream::connect() {
 }
 
 bool ProducerStream::sendMessage(const std::string& msg) {
-    if (msg.empty()) return false;
-
-    {
+    if (msg.empty()) return false;{
         std::lock_guard<std::mutex> lock(queueMutex);
         messageQueue.emplace(nextSeqNum++, msg);
     }
@@ -45,7 +43,8 @@ bool ProducerStream::sendFile(const std::string& filePath) {
     if (!file.is_open()) return false;
 
     const size_t bufferSize = 1024;
-    char buffer[bufferSize];
+    char* buffer = (char*)malloc(bufferSize);
+    if (!buffer) return false;  // Verifica se malloc falhou
 
     while (file.good()) {
         file.read(buffer, bufferSize);
@@ -56,6 +55,7 @@ bool ProducerStream::sendFile(const std::string& filePath) {
         sendMessage(chunk);
     }
 
+    free(buffer);  // Libera a memória alocada
     file.close();
     return true;
 }

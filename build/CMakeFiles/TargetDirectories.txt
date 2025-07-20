@@ -1,6 +1,0 @@
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/tcpProducer.dir
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/streamProducer.dir
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/main_app.dir
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/test_producer.dir
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/edit_cache.dir
-/Users/mac/my-own/grace-api/tcp-producer-send-file-aws/build/CMakeFiles/rebuild_cache.dir

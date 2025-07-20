@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libtcpProducer.a CMakeFiles/tcpProducer.dir/src/tcp/Producer.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libtcpProducer.a
