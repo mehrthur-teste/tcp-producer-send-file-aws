@@ -17,6 +17,7 @@ public:
     bool connect();
     bool sendFile(const std::string& filePath);
     bool sendMessage(const std::string& msg);
+    bool sendBinary(const std::vector<uint8_t>& data);
     void disconnect();
 
 private:
