@@ -23,20 +23,34 @@ bool TcpReceiver::connectToServer() {
     sockaddr_in serv_addr{};
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(serverPort);
+    serv_addr.sin_addr.s_addr = INADDR_ANY; // Escuta em todas as interfaces
 
-    if (inet_pton(AF_INET, serverIp.c_str(), &serv_addr.sin_addr) <= 0) {
-        std::cerr << "Endereço inválido TCP\n";
+    if (bind(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
+        perror("Erro ao fazer bind");
         return false;
     }
 
-    if (connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
-        std::cerr << "Erro ao conectar ao servidor TCP\n";
+    if (listen(sock, 1) < 0) {
+        perror("Erro ao fazer listen");
         return false;
     }
 
-    std::cout << "Conectado ao servidor TCP " << serverIp << ":" << serverPort << "\n";
+    std::cout << "Servidor TCP escutando em " << serverPort << "\n";
+
+    sockaddr_in client_addr{};
+    socklen_t client_len = sizeof(client_addr);
+    int clientSock = accept(sock, (struct sockaddr*)&client_addr, &client_len);
+    if (clientSock < 0) {
+        perror("Erro ao aceitar conexão");
+        return false;
+    }
+
+    std::cout << "Cliente conectado!\n";
+    client_socket = clientSock; // novo membro da classe para o socket do cliente
+
     return true;
 }
+
 
 std::vector<uint8_t> TcpReceiver::receiveBytes(size_t maxLen) {
     std::vector<uint8_t> buffer(maxLen);

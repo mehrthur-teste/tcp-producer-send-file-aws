@@ -19,7 +19,7 @@ with open(file_path, "wb") as f:
 
 # 4. Conectar ao servidor TCP (C++)
 HOST = "127.0.0.1"
-PORT = 9000
+PORT = 8001
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))

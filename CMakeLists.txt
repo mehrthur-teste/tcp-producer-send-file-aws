@@ -9,6 +9,7 @@ include_directories(include)
 # Biblioteca TCP antiga
 add_library(tcpProducer
     src/tcp/Producer.cpp
+    src/tcp/TcpReceiver.cpp  
 )
 
 # Biblioteca Stream UDP nova
