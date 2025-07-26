@@ -9,6 +9,7 @@ namespace tcp {
 class TcpReceiver {
 private:
     int sock;
+    int client_socket;
     std::string serverIp;
     int serverPort;
 
